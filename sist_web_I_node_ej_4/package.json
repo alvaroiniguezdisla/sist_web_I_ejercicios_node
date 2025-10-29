@@ -1,0 +1,17 @@
+{
+  "name": "sist_web_i_node_ej_4",          
+  "version": "1.0.0",                      
+  "description": "Ejercicio 4 - Web scraping con Node.js y cheerio", 
+  "main": "server.js",                    
+  "scripts": {                             
+    "start": "node server.js",             
+    "scrape:once": "node server.js --once" 
+  },
+  "keywords": [],                          
+  "author": "Alvaro Iñiguez Disla",        
+  "license": "ISC",                        
+  "type": "commonjs",                      
+  "dependencies": {                        
+    "cheerio": "^1.0.0"                    
+  }
+}

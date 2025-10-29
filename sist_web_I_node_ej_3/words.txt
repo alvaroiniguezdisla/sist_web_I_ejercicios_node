@@ -1,0 +1,11 @@
+sol
+luna
+estrella
+mar
+montaña
+nube
+viento
+fuego
+tierra
+agua
+roca

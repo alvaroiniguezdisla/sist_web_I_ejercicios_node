@@ -1,0 +1,17 @@
+
+
+<main class="container">
+  <h1><%= title %></h1>
+
+  <p>Esta lista se genera <strong>desde el servidor</strong>:</p>
+
+  <ul>
+    <% items.forEach(function(it){ %>
+      <li><%= it %></li>
+    <% }) %>
+  </ul>
+
+  <p style="margin-top:1rem;">
+    <a class="btn" href="/login">Ir al login</a>
+  </p>
+</main>
