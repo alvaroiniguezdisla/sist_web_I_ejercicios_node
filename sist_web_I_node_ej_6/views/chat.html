@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<h2>Chat</h2>
+
+<ul id="messages"></ul>
+
+<input id="msg" autocomplete="off">
+<button id="send">Enviar</button>
+
+<script>
+    const socket = io();
+
+    // Mostrar historial
+    socket.on("history", (msgs) => {
+        msgs.forEach(m => {
+            addMessage(m.user + ": " + m.text);
+        });
+    });
+
+    // Mostrar mensajes nuevos
+    socket.on("chat message", (data) => {
+        addMessage(data.user + ": " + data.text);
+    });
+
+    document.getElementById("send").onclick = () => {
+        const text = document.getElementById("msg").value;
+        const user = localStorage.getItem("username");
+
+        socket.emit("chat message", { user, text });
+
+        document.getElementById("msg").value = "";
+    };
+
+    function addMessage(msg) {
+        const li = document.createElement("li");
+        li.textContent = msg;
+        document.getElementById("messages").appendChild(li);
+    }
+
+    // Guardar el usuario que puso en login
+    fetch("/login").then(() => {
+        const name = document.cookie
+        localStorage.setItem("username", prompt("Escribe tu nombre otra vez:"));
+    });
+</script>
+
+</body>
+</html>
